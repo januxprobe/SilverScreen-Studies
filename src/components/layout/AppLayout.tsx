@@ -1,3 +1,4 @@
+
 import { SidebarProvider, Sidebar, SidebarTrigger, SidebarHeader, SidebarContent, SidebarInset, SidebarFooter } from "@/components/ui/sidebar";
 import SidebarNav from "@/components/layout/SidebarNav";
 import Logo from "@/components/layout/Logo";
@@ -26,7 +27,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
         </SidebarContent>
         <SidebarFooter className="p-4 border-t border-sidebar-border mt-auto">
           <div className="group-data-[collapsible=icon]:hidden text-xs text-sidebar-foreground/70">
-            © {new Date().getFullYear()} SilverScreen Studies
+            © {new Date().getFullYear()} UXprobe NV
           </div>
         </SidebarFooter>
       </Sidebar>
