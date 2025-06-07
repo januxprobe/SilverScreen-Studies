@@ -36,8 +36,7 @@ export default function Home() {
         <h2 className="text-3xl font-headline font-semibold mb-8 text-center">Explore Our Modules</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {LEARNING_MODULES.slice(0, 3).map((module) => (
-            <Link href={module.href} key={module.href} legacyBehavior>
-              <a className="block group">
+            <Link href={module.href} key={module.href} className="block group">
                 <Card className="h-full hover:shadow-xl transition-shadow duration-300">
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-2">
@@ -59,7 +58,6 @@ export default function Home() {
                       />
                   </CardContent>
                 </Card>
-              </a>
             </Link>
           ))}
         </div>
