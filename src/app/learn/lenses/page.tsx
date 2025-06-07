@@ -6,14 +6,14 @@ export default function LensesPage() {
     <ContentPage 
       title="Understanding Camera Lenses"
       description="Explore the world of camera lenses, their types, and how they impact your photography."
-      mainImage={{src: "https://placehold.co/800x400.png", alt: "Collection of camera lenses", aiHint: "camera lenses black white"}}
+      mainImage={{src: "https://placehold.co/800x400.png", alt: "Collection of camera lenses", aiHint: "camera lenses"}}
     >
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">What is Focal Length?</h2>
         <p className="mb-4">
           Focal length, measured in millimeters (mm), determines the angle of view and magnification of your lens. A shorter focal length (e.g., 24mm) provides a wider angle of view, capturing more of the scene. A longer focal length (e.g., 200mm) offers a narrower angle of view and higher magnification, bringing distant subjects closer.
         </p>
-        <Image src="https://placehold.co/700x350.png" alt="Focal length comparison" width={700} height={350} className="rounded-md shadow-md mx-auto" data-ai-hint="focal length diagram"/>
+        <Image src="https://placehold.co/700x350.png" alt="Focal length comparison" width={700} height={350} className="rounded-md shadow-md mx-auto" data-ai-hint="focal length"/>
       </section>
 
       <section className="mb-8">
@@ -30,12 +30,12 @@ export default function LensesPage() {
           <div>
             <h3 className="text-2xl font-headline mb-2">Wide-Angle Lenses</h3>
             <p>Typically lenses with focal lengths less than 35mm (on a full-frame camera). They are great for landscapes, architecture, and capturing expansive scenes. They can introduce distortion if not used carefully.</p>
-            <Image src="https://placehold.co/600x300.png" alt="Wide-angle lens shot" width={600} height={300} className="rounded-md shadow-md mt-2" data-ai-hint="wide angle photo black white"/>
+            <Image src="https://placehold.co/600x300.png" alt="Wide-angle lens shot" width={600} height={300} className="rounded-md shadow-md mt-2" data-ai-hint="wide angle"/>
           </div>
           <div>
             <h3 className="text-2xl font-headline mb-2">Telephoto Lenses</h3>
             <p>Lenses with focal lengths greater than 70mm. Ideal for sports, wildlife, and portraits where you want to isolate the subject from the background. They compress perspective, making distant objects appear closer together.</p>
-            <Image src="https://placehold.co/600x300.png" alt="Telephoto lens shot" width={600} height={300} className="rounded-md shadow-md mt-2" data-ai-hint="telephoto portrait black white"/>
+            <Image src="https://placehold.co/600x300.png" alt="Telephoto lens shot" width={600} height={300} className="rounded-md shadow-md mt-2" data-ai-hint="telephoto portrait"/>
           </div>
         </div>
       </section>

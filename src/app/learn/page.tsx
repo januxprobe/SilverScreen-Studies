@@ -24,7 +24,7 @@ export default function LearnPage() {
                     alt={module.title}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    data-ai-hint={`black white ${module.imageHint}`}
+                    data-ai-hint={module.imageHint}
                   />
                 </div>
                 <CardHeader>

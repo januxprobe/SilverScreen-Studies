@@ -6,7 +6,7 @@ export default function IsoPage() {
     <ContentPage 
       title="Understanding ISO in Film Photography"
       description="Learn how ISO affects your film's sensitivity to light and the resulting image characteristics."
-      mainImage={{src: "https://placehold.co/800x400.png", alt: "Film box showing ISO rating", aiHint: "film ISO rating black white"}}
+      mainImage={{src: "https://placehold.co/800x400.png", alt: "Film box showing ISO rating", aiHint: "ISO rating"}}
     >
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">What is ISO?</h2>
@@ -29,7 +29,7 @@ export default function IsoPage() {
               <li>Produces finer grain, resulting in smoother and more detailed images.</li>
               <li>Often preferred for landscapes, portraits, and situations where maximum image quality is desired.</li>
             </ul>
-            <Image src="https://placehold.co/600x350.png" alt="Low ISO film grain example" width={600} height={350} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="fine grain texture black white"/>
+            <Image src="https://placehold.co/600x350.png" alt="Low ISO film grain example" width={600} height={350} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="fine grain"/>
           </div>
           <div>
             <h3 className="text-2xl font-headline mb-2">High ISO (e.g., ISO 800, 1600, 3200)</h3>
@@ -39,7 +39,7 @@ export default function IsoPage() {
               <li>Produces more noticeable grain, which can be an aesthetic choice or a trade-off for shooting in difficult lighting.</li>
               <li>Allows for faster shutter speeds or smaller apertures in low light.</li>
             </ul>
-            <Image src="https://placehold.co/600x350.png" alt="High ISO film grain example" width={600} height={350} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="coarse grain texture black white"/>
+            <Image src="https://placehold.co/600x350.png" alt="High ISO film grain example" width={600} height={350} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="coarse grain"/>
           </div>
         </div>
       </section>

@@ -6,7 +6,7 @@ export default function ShutterSpeedPage() {
     <ContentPage 
       title="Understanding Shutter Speed"
       description="Learn how shutter speed controls exposure and motion in your photographs."
-      mainImage={{src: "https://placehold.co/800x400.png", alt: "Camera shutter mechanism", aiHint: "camera shutter black white"}}
+      mainImage={{src: "https://placehold.co/800x400.png", alt: "Camera shutter mechanism", aiHint: "camera shutter"}}
     >
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">What is Shutter Speed?</h2>
@@ -34,12 +34,12 @@ export default function ShutterSpeedPage() {
           <div>
             <h3 className="text-2xl font-headline mb-2">Freezing Motion (Fast Shutter Speeds)</h3>
             <p>Shutter speeds like 1/250s, 1/500s, 1/1000s, or faster are used to freeze action. This is ideal for sports, wildlife, or any fast-moving subject where you want to capture a crisp, sharp moment.</p>
-            <Image src="https://placehold.co/600x350.png" alt="Frozen motion photograph" width={600} height={350} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="frozen action sports black white"/>
+            <Image src="https://placehold.co/600x350.png" alt="Frozen motion photograph" width={600} height={350} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="frozen action"/>
           </div>
           <div>
             <h3 className="text-2xl font-headline mb-2">Showing Motion / Motion Blur (Slow Shutter Speeds)</h3>
             <p>Shutter speeds like 1/30s, 1/15s, 1s, or longer can create motion blur. This can be used creatively to show the movement of water (silky smooth waterfalls), light trails from cars at night, or to imply speed in a subject while keeping the background sharp (panning).</p>
-            <Image src="https://placehold.co/600x350.png" alt="Motion blur photograph" width={600} height={350} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="waterfall motion blur black white"/>
+            <Image src="https://placehold.co/600x350.png" alt="Motion blur photograph" width={600} height={350} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="waterfall motion"/>
           </div>
         </div>
       </section>

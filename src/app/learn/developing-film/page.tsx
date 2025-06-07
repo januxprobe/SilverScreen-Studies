@@ -6,7 +6,7 @@ export default function DevelopingFilmPage() {
     <ContentPage 
       title="Introduction to Film Developing"
       description="An overview of the process of developing photographic film, turning your latent images into visible negatives or positives."
-      mainImage={{src: "https://placehold.co/800x400.png", alt: "Darkroom equipment for film developing", aiHint: "darkroom equipment black white"}}
+      mainImage={{src: "https://placehold.co/800x400.png", alt: "Darkroom equipment for film developing", aiHint: "darkroom equipment"}}
     >
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">Why Develop Film?</h2>
@@ -23,7 +23,7 @@ export default function DevelopingFilmPage() {
         <ol className="list-decimal pl-6 space-y-3 mb-4">
           <li>
             <strong>Loading the Film (Total Darkness):</strong> The exposed film must be removed from its canister or spool and loaded onto a developing reel, then placed into a light-tight developing tank. This step MUST be done in complete darkness.
-            <Image src="https://placehold.co/600x300.png" alt="Film developing tank and reels" width={600} height={300} className="rounded-md shadow-md mt-2 mx-auto" data-ai-hint="film developing tank black white"/>
+            <Image src="https://placehold.co/600x300.png" alt="Film developing tank and reels" width={600} height={300} className="rounded-md shadow-md mt-2 mx-auto" data-ai-hint="developing tank"/>
           </li>
           <li>
             <strong>Developer:</strong> The developer chemical converts the exposed silver halide crystals into metallic silver, making the image visible. Development time and temperature are critical and vary by film and developer. Agitation (gently inverting the tank) is required at regular intervals.

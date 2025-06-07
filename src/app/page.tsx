@@ -54,7 +54,7 @@ export default function Home() {
                         width={600}
                         height={400}
                         className="rounded-md object-cover aspect-video"
-                        data-ai-hint={`black white ${module.imageHint}`}
+                        data-ai-hint={module.imageHint}
                       />
                   </CardContent>
                 </Card>
@@ -92,7 +92,7 @@ export default function Home() {
               width={800}
               height={600}
               className="rounded-md shadow-lg object-cover"
-              data-ai-hint="black white landscape"
+              data-ai-hint="monochrome landscape"
             />
           </div>
         </div>

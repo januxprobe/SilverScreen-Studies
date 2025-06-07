@@ -6,7 +6,7 @@ export default function NaturePhotographyPage() {
     <ContentPage 
       title="Techniques for Nature Photography"
       description="Capture the beauty and grandeur of the natural world with these film photography tips for nature."
-      mainImage={{src: "https://placehold.co/800x400.png", alt: "Stunning black and white nature landscape", aiHint: "nature landscape Ansel Adams style"}}
+      mainImage={{src: "https://placehold.co/800x400.png", alt: "Stunning black and white nature landscape", aiHint: "nature landscape"}}
     >
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">Planning and Patience</h2>
@@ -26,7 +26,7 @@ export default function NaturePhotographyPage() {
           <li><strong>Foreground Interest:</strong> Include elements in the foreground (rocks, flowers, logs) to add depth and scale to landscapes.</li>
           <li><strong>Framing:</strong> Use tree branches or rock formations to frame a distant scene.</li>
         </ul>
-        <Image src="https://placehold.co/700x400.png" alt="Nature photo with strong foreground interest" width={700} height={400} className="rounded-md shadow-md mx-auto" data-ai-hint="landscape foreground interest black white"/>
+        <Image src="https://placehold.co/700x400.png" alt="Nature photo with strong foreground interest" width={700} height={400} className="rounded-md shadow-md mx-auto" data-ai-hint="landscape foreground"/>
       </section>
 
       <section className="mb-8">
@@ -59,7 +59,7 @@ export default function NaturePhotographyPage() {
           <li><strong>Green Filter:</strong> Lightens green foliage, useful for separating tones in woodland scenes.</li>
           <li><strong>Polarizing Filter:</strong> Reduces glare and reflections from water and wet leaves, deepens blue skies, and increases color saturation (though its effect on B&W is primarily sky darkening and reflection control).</li>
         </ul>
-        <Image src="https://placehold.co/600x300.png" alt="Comparison of B&W landscape with and without red filter" width={600} height={300} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="filter comparison landscape black white"/>
+        <Image src="https://placehold.co/600x300.png" alt="Comparison of B&W landscape with and without red filter" width={600} height={300} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="filter landscape"/>
       </section>
       
       <section className="mb-8">

@@ -6,7 +6,7 @@ export default function FilmTypesPage() {
     <ContentPage 
       title="Exploring Film Types"
       description="Discover the variety of photographic films available and their unique characteristics."
-      mainImage={{src: "https://placehold.co/800x400.png", alt: "Various film rolls and boxes", aiHint: "film rolls black white"}}
+      mainImage={{src: "https://placehold.co/800x400.png", alt: "Various film rolls and boxes", aiHint: "film rolls"}}
     >
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">Black and White Negative Film</h2>
@@ -18,7 +18,7 @@ export default function FilmTypesPage() {
           <li><strong>Popular Stocks:</strong> Ilford HP5 Plus, Kodak Tri-X 400, Kodak T-MAX, Fomapan, Kentmere.</li>
           <li><strong>Development:</strong> Relatively straightforward to develop at home or by labs using standard B&W chemistry.</li>
         </ul>
-        <Image src="https://placehold.co/600x350.png" alt="Black and white film negative strip" width={600} height={350} className="rounded-md shadow-md mx-auto" data-ai-hint="film negative strip black white"/>
+        <Image src="https://placehold.co/600x350.png" alt="Black and white film negative strip" width={600} height={350} className="rounded-md shadow-md mx-auto" data-ai-hint="negative strip"/>
       </section>
 
       <section className="mb-8">
@@ -43,7 +43,7 @@ export default function FilmTypesPage() {
           <li><strong>Popular Stocks:</strong> Fujifilm Velvia, Fujifilm Provia, Kodak Ektachrome.</li>
           <li><strong>Development:</strong> Processed using E-6 chemistry. Fewer labs process E-6 compared to C-41, and home development is more challenging.</li>
         </ul>
-        <Image src="https://placehold.co/600x350.png" alt="Mounted color slide film" width={600} height={350} className="rounded-md shadow-md mx-auto" data-ai-hint="color slide film black white"/>
+        <Image src="https://placehold.co/600x350.png" alt="Mounted color slide film" width={600} height={350} className="rounded-md shadow-md mx-auto" data-ai-hint="slide film"/>
       </section>
 
       <section className="mb-8">
