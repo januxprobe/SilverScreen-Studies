@@ -11,10 +11,10 @@ export default function IsoPage() {
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">What is ISO?</h2>
         <p className="mb-4">
-          ISO (International Organization for Standardization) in film photography refers to the film's sensitivity to light. It's a rating that indicates how much light is needed to create a properly exposed image. Common ISO values for film include 100, 200, 400, 800, 1600, and 3200.
+          <b>ISO (International Organization for Standardization)</b> in film photography refers to the <b>film's sensitivity to light</b>. It's a rating that indicates how much light is needed to create a properly exposed image. Common <b>ISO values</b> for film include 100, 200, 400, 800, 1600, and 3200.
         </p>
         <p className="mb-4">
-          Your film camera will have an ISO dial. You must set this dial to match the ISO of the film you have loaded into the camera. This tells the camera's light meter (if it has one) how sensitive the film is, allowing it to suggest correct exposure settings.
+          Your film camera will have an <b>ISO dial</b>. You must set this dial to match the ISO of the film you have loaded into the camera. This tells the camera's light meter (if it has one) how sensitive the film is, allowing it to suggest correct exposure settings.
         </p>
       </section>
 
@@ -24,9 +24,9 @@ export default function IsoPage() {
           <div>
             <h3 className="text-2xl font-headline mb-2">Low ISO (e.g., ISO 100, 200)</h3>
             <ul className="list-disc pl-6 space-y-1">
-              <li>Less sensitive to light.</li>
-              <li>Requires more light for proper exposure (ideal for bright, sunny days or studio lighting).</li>
-              <li>Produces finer grain, resulting in smoother and more detailed images.</li>
+              <li><b>Less sensitive to light</b>.</li>
+              <li><b>Requires more light</b> for proper exposure (ideal for bright, sunny days or studio lighting).</li>
+              <li>Produces <b>finer grain</b>, resulting in <b>smoother and more detailed images</b>.</li>
               <li>Often preferred for landscapes, portraits, and situations where maximum image quality is desired.</li>
             </ul>
             <Image src="https://placehold.co/600x350.png" alt="Low ISO film grain example" width={600} height={350} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="fine grain"/>
@@ -34,10 +34,10 @@ export default function IsoPage() {
           <div>
             <h3 className="text-2xl font-headline mb-2">High ISO (e.g., ISO 800, 1600, 3200)</h3>
             <ul className="list-disc pl-6 space-y-1">
-              <li>More sensitive to light.</li>
-              <li>Requires less light for proper exposure (suitable for low-light conditions, indoor photography, or fast action).</li>
-              <li>Produces more noticeable grain, which can be an aesthetic choice or a trade-off for shooting in difficult lighting.</li>
-              <li>Allows for faster shutter speeds or smaller apertures in low light.</li>
+              <li><b>More sensitive to light</b>.</li>
+              <li><b>Requires less light</b> for proper exposure (suitable for low-light conditions, indoor photography, or fast action).</li>
+              <li>Produces <b>more noticeable grain</b>, which can be an aesthetic choice or a trade-off for shooting in difficult lighting.</li>
+              <li>Allows for <b>faster shutter speeds or smaller apertures</b> in low light.</li>
             </ul>
             <Image src="https://placehold.co/600x350.png" alt="High ISO film grain example" width={600} height={350} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="coarse grain"/>
           </div>
@@ -50,19 +50,19 @@ export default function IsoPage() {
           The choice of film ISO depends on:
         </p>
         <ul className="list-disc pl-6 space-y-1 mb-4">
-          <li><strong>Lighting Conditions:</strong> Bright light allows for low ISO; dim light often necessitates high ISO.</li>
-          <li><strong>Desired Grain:</strong> If you want minimal grain, choose a low ISO film. If you like a grainy aesthetic or need to shoot in low light, a high ISO film might be appropriate.</li>
-          <li><strong>Subject Matter:</strong> For stationary subjects in good light, low ISO is great. For fast-moving subjects or handheld shooting in low light, high ISO allows for faster shutter speeds to prevent blur.</li>
+          <li><b>Lighting Conditions:</b> Bright light allows for low ISO; dim light often necessitates high ISO.</li>
+          <li><b>Desired Grain:</b> If you want minimal grain, choose a low ISO film. If you like a grainy aesthetic or need to shoot in low light, a high ISO film might be appropriate.</li>
+          <li><b>Subject Matter:</b> For stationary subjects in good light, low ISO is great. For fast-moving subjects or handheld shooting in low light, high ISO allows for faster shutter speeds to prevent blur.</li>
         </ul>
         <p>
-          Unlike digital cameras where you can change ISO for each shot, with film, the ISO is fixed for the entire roll. Choose your film roll wisely based on the conditions you anticipate shooting in.
+          Unlike digital cameras where you can change ISO for each shot, with film, the <b>ISO is fixed for the entire roll</b>. Choose your film roll wisely based on the conditions you anticipate shooting in.
         </p>
       </section>
 
        <section>
         <h2 className="text-3xl font-headline mb-4">Pushing and Pulling Film</h2>
         <p>
-          "Pushing" film means shooting it at a higher ISO than its box speed (e.g., shooting ISO 400 film at ISO 800 or 1600) and then compensating during development. This increases sensitivity and contrast, often with more grain. "Pulling" is the opposite—shooting at a lower ISO and under-developing, which reduces contrast and grain. These are advanced techniques that require specific development adjustments.
+          <b>"Pushing"</b> film means <b>shooting it at a higher ISO</b> than its box speed (e.g., shooting ISO 400 film at ISO 800 or 1600) and then <b>compensating during development</b>. This <b>increases sensitivity and contrast</b>, often with <b>more grain</b>. <b>"Pulling"</b> is the opposite—<b>shooting at a lower ISO</b> and <b>under-developing</b>, which <b>reduces contrast and grain</b>. These are <b>advanced techniques</b> that require specific development adjustments.
         </p>
       </section>
     </ContentPage>

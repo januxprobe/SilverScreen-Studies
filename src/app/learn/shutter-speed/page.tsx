@@ -11,17 +11,17 @@ export default function ShutterSpeedPage() {
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">What is Shutter Speed?</h2>
         <p className="mb-4">
-          Shutter speed is the length of time the camera's shutter remains open when you take a picture. It's one of the three pillars of exposure (along with aperture and ISO). Shutter speed is measured in seconds or fractions of a second (e.g., 1s, 1/2s, 1/60s, 1/250s, 1/1000s).
+          <b>Shutter speed</b> is the <b>length of time the camera's shutter remains open</b> when you take a picture. It's one of the <b>three pillars of exposure</b> (along with aperture and ISO). Shutter speed is measured in <b>seconds or fractions of a second</b> (e.g., 1s, 1/2s, 1/60s, 1/250s, 1/1000s).
         </p>
         <p className="mb-4">
-          A faster shutter speed means the shutter is open for a shorter duration, letting in less light. A slower shutter speed means the shutter is open longer, letting in more light.
+          A <b>faster shutter speed</b> means the shutter is open for a <b>shorter duration, letting in less light</b>. A <b>slower shutter speed</b> means the shutter is open <b>longer, letting in more light</b>.
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">Shutter Speed and Exposure</h2>
         <p className="mb-4">
-          Shutter speed directly impacts the brightness of your photo. If your image is too dark (underexposed), you might need a slower shutter speed (or wider aperture/higher ISO). If it's too bright (overexposed), you might need a faster shutter speed (or smaller aperture/lower ISO).
+          Shutter speed directly impacts the <b>brightness of your photo</b>. If your image is too dark (underexposed), you might need a slower shutter speed (or wider aperture/higher ISO). If it's too bright (overexposed), you might need a faster shutter speed (or smaller aperture/lower ISO).
         </p>
       </section>
 
@@ -33,12 +33,12 @@ export default function ShutterSpeedPage() {
         <div className="space-y-6">
           <div>
             <h3 className="text-2xl font-headline mb-2">Freezing Motion (Fast Shutter Speeds)</h3>
-            <p>Shutter speeds like 1/250s, 1/500s, 1/1000s, or faster are used to freeze action. This is ideal for sports, wildlife, or any fast-moving subject where you want to capture a crisp, sharp moment.</p>
+            <p>Shutter speeds like 1/250s, 1/500s, 1/1000s, or faster are used to <b>freeze action</b>. This is ideal for sports, wildlife, or any fast-moving subject where you want to capture a <b>crisp, sharp moment</b>.</p>
             <Image src="https://placehold.co/600x350.png" alt="Frozen motion photograph" width={600} height={350} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="frozen action"/>
           </div>
           <div>
             <h3 className="text-2xl font-headline mb-2">Showing Motion / Motion Blur (Slow Shutter Speeds)</h3>
-            <p>Shutter speeds like 1/30s, 1/15s, 1s, or longer can create motion blur. This can be used creatively to show the movement of water (silky smooth waterfalls), light trails from cars at night, or to imply speed in a subject while keeping the background sharp (panning).</p>
+            <p>Shutter speeds like 1/30s, 1/15s, 1s, or longer can create <b>motion blur</b>. This can be used creatively to show the <b>movement of water</b> (silky smooth waterfalls), <b>light trails</b> from cars at night, or to <b>imply speed</b> in a subject while keeping the background sharp (<b>panning</b>).</p>
             <Image src="https://placehold.co/600x350.png" alt="Motion blur photograph" width={600} height={350} className="rounded-md shadow-md mt-3 mx-auto" data-ai-hint="waterfall motion"/>
           </div>
         </div>
@@ -47,17 +47,17 @@ export default function ShutterSpeedPage() {
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">Camera Shake and Tripods</h2>
         <p className="mb-4">
-          When using slower shutter speeds, camera shake becomes a risk. Any movement of the camera while the shutter is open can result in a blurry image. A general rule of thumb for handheld shooting is to use a shutter speed at least as fast as the reciprocal of your focal length (e.g., for a 50mm lens, use 1/50s or faster; for a 200mm lens, use 1/200s or faster).
+          When using <b>slower shutter speeds</b>, <b>camera shake</b> becomes a risk. Any movement of the camera while the shutter is open can result in a <b>blurry image</b>. A general rule of thumb for handheld shooting is to use a shutter speed at least as fast as the <b>reciprocal of your focal length</b> (e.g., for a 50mm lens, use 1/50s or faster; for a 200mm lens, use 1/200s or faster).
         </p>
         <p>
-          For very slow shutter speeds (typically anything slower than 1/30s, or even slower with longer lenses), a tripod is essential to keep the camera steady and ensure sharp images.
+          For very slow shutter speeds (typically anything slower than 1/30s, or even slower with longer lenses), a <b>tripod is essential</b> to keep the camera steady and ensure sharp images.
         </p>
       </section>
 
       <section>
         <h2 className="text-3xl font-headline mb-4">Shutter Speed Dial</h2>
         <p>
-          Most film cameras have a shutter speed dial, usually on the top plate. It allows you to select your desired shutter speed. Some cameras also have a "B" (Bulb) setting, where the shutter stays open for as long as you hold the shutter button down, and "T" (Time) where it opens on one press and closes on another (less common). These are used for very long exposures.
+          Most film cameras have a <b>shutter speed dial</b>, usually on the top plate. It allows you to select your desired shutter speed. Some cameras also have a <b>"B" (Bulb)</b> setting, where the <b>shutter stays open</b> for as long as you hold the shutter button down, and <b>"T" (Time)</b> where it opens on one press and closes on another (less common). These are used for very long exposures.
         </p>
       </section>
     </ContentPage>
