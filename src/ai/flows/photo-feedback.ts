@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -55,8 +56,23 @@ const photoFeedbackFlow = ai.defineFlow(
     inputSchema: PhotoFeedbackInputSchema,
     outputSchema: PhotoFeedbackOutputSchema,
   },
-  async input => {
-    const {output} = await prompt(input);
-    return output!;
+  async (input: PhotoFeedbackInput) => {
+    try {
+      const {output, usage} = await prompt(input);
+      // Ensure the output and its 'feedback' field exist, as per PhotoFeedbackOutputSchema
+      if (!output || typeof output.feedback !== 'string') {
+        console.error('Photo feedback flow: LLM did not return the expected output structure.', { input, outputFromLLM: output, usage });
+        throw new Error('Failed to get structured feedback from AI model. Output was missing or incomplete.');
+      }
+      return output;
+    } catch (e) {
+      // Log the error with more context
+      console.error('Error executing photoFeedbackFlow:', e instanceof Error ? e.message : String(e), {inputDetails: input});
+      // Re-throw a more generic error or a new error with a clearer message for upstream handlers
+      if (e instanceof Error) {
+        throw new Error(`AI processing error during photo feedback: ${e.message}`);
+      }
+      throw new Error('An unexpected error occurred during AI photo feedback processing.');
+    }
   }
 );
