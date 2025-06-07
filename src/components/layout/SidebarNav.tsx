@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -42,7 +43,7 @@ export default function SidebarNav() {
             <SidebarMenuSub className="ml-0 border-l-0 pl-1.5 pt-1">
               {item.subItems.map((subItem) => (
                 <SidebarMenuSubItem key={subItem.href}>
-                  <Link href={subItem.href} legacyBehavior passHref>
+                  <Link href={subItem.href}>
                     <SidebarMenuSubButton
                       isActive={pathname === subItem.href}
                       className="gap-2 justify-start"
@@ -62,7 +63,7 @@ export default function SidebarNav() {
 
     return (
       <SidebarMenuItem key={item.href}>
-        <Link href={item.href} legacyBehavior passHref>
+        <Link href={item.href}>
           <SidebarMenuButton 
             isActive={isActive}
             tooltip={{children: item.title, className: "group-data-[collapsible=expanded]:hidden"}}
