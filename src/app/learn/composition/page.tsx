@@ -41,8 +41,16 @@ export default function CompositionPage() {
 
       <section>
         <h2 className="text-3xl font-headline mb-4">Negative Space</h2>
-        <p>
-          The <b>area around and between subjects</b> in an image is called <b>negative space</b>. Effectively using negative space can help your <b>subject stand out</b>, create a <b>sense of scale</b>, or <b>convey a particular mood</b>. Don't be afraid of empty areas in your composition.
+        <p className="mb-4">
+          The <b>area around and between subjects</b> in an image is called <b>negative space</b>. Effectively using negative space can:
+        </p>
+        <ul className="list-disc pl-6 space-y-1">
+          <li>Help your <b>subject stand out</b>.</li>
+          <li>Create a <b>sense of scale</b>.</li>
+          <li><b>Convey a particular mood</b>.</li>
+        </ul>
+        <p className="mt-2">
+          Don't be afraid of empty areas in your composition.
         </p>
       </section>
     </ContentPage>

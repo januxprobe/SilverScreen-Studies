@@ -74,7 +74,7 @@ export default function DevelopingFilmPage() {
       
       <section>
         <h2 className="text-3xl font-headline mb-4">Safety Precautions</h2>
-        <p>
+        <p className="mb-2">
           When working with photographic chemicals, always:
         </p>
         <ul className="list-disc pl-6 space-y-1">

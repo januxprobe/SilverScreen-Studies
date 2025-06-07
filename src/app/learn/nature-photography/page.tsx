@@ -10,14 +10,20 @@ export default function NaturePhotographyPage() {
     >
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">Planning and Patience</h2>
-        <p className="mb-4">
-          Great nature photography often starts before you even pick up the camera. <b>Research your location</b>, understand the <b>best times for light</b> (often <b>golden hour</b> - shortly after sunrise or before sunset), and <b>check weather conditions</b>. <b>Patience is key</b>; you might need to wait for the light to be just right or for wildlife to appear.
+        <p className="mb-2">
+          Great nature photography often starts before you even pick up the camera. Key elements include:
         </p>
+        <ul className="list-disc pl-6 space-y-1 mb-4">
+            <li><b>Research your location</b>.</li>
+            <li>Understand the <b>best times for light</b> (often <b>golden hour</b> - shortly after sunrise or before sunset).</li>
+            <li><b>Check weather conditions</b>.</li>
+            <li><b>Patience is key</b>; you might need to wait for the light to be just right or for wildlife to appear.</li>
+        </ul>
       </section>
 
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">Composition in Nature</h2>
-        <p className="mb-4">
+        <p className="mb-2">
           Many standard composition rules apply beautifully to nature:
         </p>
         <ul className="list-disc pl-6 space-y-2 mb-4">
@@ -49,7 +55,7 @@ export default function NaturePhotographyPage() {
 
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">Using Filters (Especially for B&W Film)</h2>
-        <p className="mb-4">
+        <p className="mb-2">
           Filters can dramatically enhance black and white nature photography:
         </p>
         <ul className="list-disc pl-6 space-y-1">

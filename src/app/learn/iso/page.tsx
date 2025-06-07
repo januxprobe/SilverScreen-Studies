@@ -10,9 +10,17 @@ export default function IsoPage() {
     >
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">What is ISO?</h2>
-        <p className="mb-4">
-          <b>ISO (International Organization for Standardization)</b> in film photography refers to the <b>film's sensitivity to light</b>. It's a rating that indicates how much light is needed to create a properly exposed image. Common <b>ISO values</b> for film include 100, 200, 400, 800, 1600, and 3200.
+        <p className="mb-2">
+          <b>ISO (International Organization for Standardization)</b> in film photography refers to the <b>film's sensitivity to light</b>. It's a rating that indicates how much light is needed to create a properly exposed image. Common <b>ISO values</b> for film include:
         </p>
+        <ul className="list-disc pl-6 space-y-1 mb-4">
+            <li>100</li>
+            <li>200</li>
+            <li>400</li>
+            <li>800</li>
+            <li>1600</li>
+            <li>3200</li>
+        </ul>
         <p className="mb-4">
           Your film camera will have an <b>ISO dial</b>. You must set this dial to match the ISO of the film you have loaded into the camera. This tells the camera's light meter (if it has one) how sensitive the film is, allowing it to suggest correct exposure settings.
         </p>
@@ -46,7 +54,7 @@ export default function IsoPage() {
 
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">Choosing the Right ISO</h2>
-        <p className="mb-4">
+        <p className="mb-2">
           The choice of film ISO depends on:
         </p>
         <ul className="list-disc pl-6 space-y-1 mb-4">
@@ -61,9 +69,13 @@ export default function IsoPage() {
 
        <section>
         <h2 className="text-3xl font-headline mb-4">Pushing and Pulling Film</h2>
-        <p>
-          <b>"Pushing"</b> film means <b>shooting it at a higher ISO</b> than its box speed (e.g., shooting ISO 400 film at ISO 800 or 1600) and then <b>compensating during development</b>. This <b>increases sensitivity and contrast</b>, often with <b>more grain</b>. <b>"Pulling"</b> is the opposite—<b>shooting at a lower ISO</b> and <b>under-developing</b>, which <b>reduces contrast and grain</b>. These are <b>advanced techniques</b> that require specific development adjustments.
+        <p className="mb-2">
+          These are <b>advanced techniques</b> that require specific development adjustments:
         </p>
+        <ul className="list-disc pl-6 space-y-1">
+            <li><b>"Pushing"</b> film: Means <b>shooting it at a higher ISO</b> than its box speed (e.g., shooting ISO 400 film at ISO 800 or 1600) and then <b>compensating during development</b>. This <b>increases sensitivity and contrast</b>, often with <b>more grain</b>.</li>
+            <li><b>"Pulling"</b> film: The opposite—<b>shooting at a lower ISO</b> and <b>under-developing</b>, which <b>reduces contrast and grain</b>.</li>
+        </ul>
       </section>
     </ContentPage>
   );

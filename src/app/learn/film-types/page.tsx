@@ -48,7 +48,7 @@ export default function FilmTypesPage() {
 
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">Film Formats</h2>
-        <p className="mb-4">
+        <p className="mb-2">
           Film comes in various sizes (formats):
         </p>
         <ul className="list-disc pl-6 space-y-1">
@@ -60,9 +60,13 @@ export default function FilmTypesPage() {
 
       <section>
         <h2 className="text-3xl font-headline mb-4">Film Speed (ISO)</h2>
-        <p>
-          As covered in the ISO module, films have different <b>sensitivities (ISO ratings)</b>. <b>Slower films (ISO 50-200)</b> generally have <b>finer grain</b> and are good for <b>bright light</b>. <b>Faster films (ISO 400-3200)</b> are better for <b>low light or action</b> but have <b>more noticeable grain</b>.
+        <p className="mb-2">
+          As covered in the ISO module, films have different <b>sensitivities (ISO ratings)</b>.
         </p>
+        <ul className="list-disc pl-6 space-y-1">
+            <li><b>Slower films (ISO 50-200):</b> Generally have <b>finer grain</b> and are good for <b>bright light</b>.</li>
+            <li><b>Faster films (ISO 400-3200):</b> Are better for <b>low light or action</b> but have <b>more noticeable grain</b>.</li>
+        </ul>
       </section>
     </ContentPage>
   );

@@ -10,9 +10,13 @@ export default function LensesPage() {
     >
       <section className="mb-8">
         <h2 className="text-3xl font-headline mb-4">What is Focal Length?</h2>
-        <p className="mb-4">
-          <b>Focal length</b>, measured in <b>millimeters (mm)</b>, determines the <b>angle of view</b> and <b>magnification</b> of your lens. A <b>shorter focal length</b> (e.g., 24mm) provides a <b>wider angle of view</b>, capturing more of the scene. A <b>longer focal length</b> (e.g., 200mm) offers a <b>narrower angle of view</b> and <b>higher magnification</b>, bringing distant subjects closer.
+        <p className="mb-2">
+          <b>Focal length</b>, measured in <b>millimeters (mm)</b>, determines the <b>angle of view</b> and <b>magnification</b> of your lens.
         </p>
+        <ul className="list-disc pl-6 space-y-1 mb-4">
+            <li>A <b>shorter focal length</b> (e.g., 24mm) provides a <b>wider angle of view</b>, capturing more of the scene.</li>
+            <li>A <b>longer focal length</b> (e.g., 200mm) offers a <b>narrower angle of view</b> and <b>higher magnification</b>, bringing distant subjects closer.</li>
+        </ul>
         <Image src="https://placehold.co/700x350.png" alt="Focal length comparison" width={700} height={350} className="rounded-md shadow-md mx-auto" data-ai-hint="focal length"/>
       </section>
 
