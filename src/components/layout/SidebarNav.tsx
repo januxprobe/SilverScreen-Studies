@@ -45,12 +45,15 @@ export default function SidebarNav() {
                 <SidebarMenuSubItem key={subItem.href}>
                   <Link href={subItem.href}>
                     <SidebarMenuSubButton
+                      asChild
                       isActive={pathname === subItem.href}
                       className="gap-2 justify-start"
                       aria-label={subItem.label || subItem.title}
                     >
-                      {subItem.icon && <subItem.icon className="h-3.5 w-3.5 shrink-0" />}
-                      <span>{subItem.label || subItem.title}</span>
+                      <>
+                        {subItem.icon && <subItem.icon className="h-3.5 w-3.5 shrink-0" />}
+                        <span>{subItem.label || subItem.title}</span>
+                      </>
                     </SidebarMenuSubButton>
                   </Link>
                 </SidebarMenuSubItem>
@@ -64,14 +67,17 @@ export default function SidebarNav() {
     return (
       <SidebarMenuItem key={item.href}>
         <Link href={item.href}>
-          <SidebarMenuButton 
+          <SidebarMenuButton
+            asChild
             isActive={isActive}
             tooltip={{children: item.title, className: "group-data-[collapsible=expanded]:hidden"}}
             aria-label={item.title}
             className="group-data-[collapsible=icon]:justify-center"
           >
-            <Icon className="h-4 w-4 shrink-0" />
-            <span className="truncate group-data-[collapsible=icon]:hidden">{item.title}</span>
+            <>
+              <Icon className="h-4 w-4 shrink-0" />
+              <span className="truncate group-data-[collapsible=icon]:hidden">{item.title}</span>
+            </>
           </SidebarMenuButton>
         </Link>
       </SidebarMenuItem>
