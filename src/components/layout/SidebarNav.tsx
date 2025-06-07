@@ -14,7 +14,6 @@ import {
   SidebarMenuSubButton,
 } from '@/components/ui/sidebar';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-// ChevronDown removed as it's part of AccordionTrigger by default
 
 export default function SidebarNav() {
   const pathname = usePathname();
@@ -49,7 +48,7 @@ export default function SidebarNav() {
                       className="gap-2 justify-start"
                       aria-label={subItem.label || subItem.title}
                     >
-                      <span>
+                      <span className="flex items-center gap-2">
                         {subItem.icon && <subItem.icon className="h-3.5 w-3.5 shrink-0" />}
                         <span className="truncate">{subItem.label || subItem.title}</span>
                       </span>
@@ -67,15 +66,16 @@ export default function SidebarNav() {
       <SidebarMenuItem key={item.href}>
         <Link href={item.href}>
           <SidebarMenuButton
+            asChild
             isActive={isActive}
             tooltip={{children: item.title, className: "group-data-[collapsible=expanded]:hidden"}}
             aria-label={item.title}
             className="group-data-[collapsible=icon]:justify-center"
           >
-            <>
+            <span className="flex items-center gap-2 group-data-[collapsible=icon]:w-full group-data-[collapsible=icon]:justify-center">
               <Icon className="h-4 w-4 shrink-0" />
               <span className="truncate group-data-[collapsible=icon]:hidden">{item.title}</span>
-            </>
+            </span>
           </SidebarMenuButton>
         </Link>
       </SidebarMenuItem>
@@ -92,3 +92,4 @@ export default function SidebarNav() {
     </nav>
   );
 }
+
