@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, type FormEvent } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -39,6 +39,7 @@ const SignInForm = () => {
         title: 'Sign in successful!',
         description: 'You have successfully signed in.',
       });
+      // Optionally redirect or perform other actions
     } catch (error: any) {
       toast({
         title: 'Error signing in',
@@ -59,6 +60,7 @@ const SignInForm = () => {
         title: 'Sign in with Google successful!',
         description: 'You have successfully signed in.',
       });
+      // Optionally redirect or perform other actions
     } catch (error: any) {
       toast({
         title: 'Error signing in with Google',
@@ -75,7 +77,7 @@ const SignInForm = () => {
       <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
         {isClient ? (
           <>
-            <div>
+            <div suppressHydrationWarning={true}>
               <Label htmlFor="email-signin">Email</Label>
               <Input
                 type="email"
@@ -84,9 +86,10 @@ const SignInForm = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
+                disabled={isPending || isGooglePending}
               />
             </div>
-            <div>
+            <div suppressHydrationWarning={true}>
               <Label htmlFor="password-signin">Password</Label>
               <Input
                 type="password"
@@ -95,17 +98,18 @@ const SignInForm = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
                 required
+                disabled={isPending || isGooglePending}
               />
             </div>
           </>
         ) : (
           <>
             {/* Fallback for SSR to prevent hydration mismatch and maintain layout */}
-            <div className="space-y-1">
+            <div className="space-y-1" suppressHydrationWarning={true}>
               <Label htmlFor="email-signin-ssr">Email</Label>
               <Input id="email-signin-ssr" disabled placeholder="Enter your email" value="" onChange={() => {}} />
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1" suppressHydrationWarning={true}>
               <Label htmlFor="password-signin-ssr">Password</Label>
               <Input id="password-signin-ssr" type="password" disabled placeholder="Enter your password" value="" onChange={() => {}} />
             </div>
