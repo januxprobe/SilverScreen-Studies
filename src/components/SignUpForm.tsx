@@ -1,3 +1,5 @@
+'use client';
+
 // src/components/SignUpForm.tsx
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
@@ -13,7 +15,7 @@ const SignUpForm = () => {
   const { toast } = useToast();
   const [isPending, setIsPending] = React.useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsPending(true);
     try {
@@ -22,7 +24,7 @@ const SignUpForm = () => {
         title: 'Sign up successful!',
         description: 'You have successfully created an account.',
       });
-    } catch (error) {
+    } catch (error: any) {
       toast({
         title: 'Error signing up',
         description: error.message,
