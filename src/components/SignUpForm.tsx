@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -22,9 +22,15 @@ const SignUpForm = () => {
   const { toast } = useToast();
   const [isPending, setIsPending] = React.useState(false);
   const [isGooglePending, setIsGooglePending] = React.useState(false);
+  const [isClient, setIsClient] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!isClient) return;
     setIsPending(true);
     try {
       await signUp(email, password);
@@ -44,6 +50,7 @@ const SignUpForm = () => {
   };
 
   const handleGoogleSignUp = async () => {
+    if (!isClient) return;
     setIsGooglePending(true);
     try {
       await signInWithGoogle(); // Firebase handles new user creation with signInWithPopup
@@ -65,43 +72,63 @@ const SignUpForm = () => {
   return (
     <div className="w-full max-w-sm">
       <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-        <div suppressHydrationWarning>
-          <Label htmlFor="email-signup">Email</Label>
-          <Input
-            type="email"
-            id="email-signup"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-          />
-        </div>
-        <div suppressHydrationWarning>
-          <Label htmlFor="password-signup">Password</Label>
-          <Input
-            type="password"
-            id="password-signup"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-            required
-          />
-        </div>
-        <Button disabled={isPending || isGooglePending} type="submit">
+        {isClient ? (
+          <>
+            <div>
+              <Label htmlFor="email-signup">Email</Label>
+              <Input
+                type="email"
+                id="email-signup"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div>
+              <Label htmlFor="password-signup">Password</Label>
+              <Input
+                type="password"
+                id="password-signup"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+          </>
+        ) : (
+          <>
+            {/* Fallback for SSR to prevent hydration mismatch and maintain layout */}
+            <div className="space-y-1">
+              <Label htmlFor="email-signup-ssr">Email</Label>
+              <Input id="email-signup-ssr" disabled placeholder="Enter your email" />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="password-signup-ssr">Password</Label>
+              <Input id="password-signup-ssr" type="password" disabled placeholder="Enter your password" />
+            </div>
+          </>
+        )}
+        <Button disabled={isPending || isGooglePending || !isClient} type="submit">
           {isPending ? "Creating account..." : "Sign Up"}
         </Button>
       </form>
-      <Separator className="my-4" />
-      <Button variant="outline" onClick={handleGoogleSignUp} disabled={isPending || isGooglePending} className="w-full">
-        {isGooglePending ? (
-          "Signing up..."
-        ) : (
-          <>
-            <GoogleIcon />
-            Sign Up with Google
-          </>
-        )}
-      </Button>
+      {isClient && (
+        <>
+          <Separator className="my-4" />
+          <Button variant="outline" onClick={handleGoogleSignUp} disabled={isPending || isGooglePending || !isClient} className="w-full">
+            {isGooglePending ? (
+              "Signing up..."
+            ) : (
+              <>
+                <GoogleIcon />
+                Sign Up with Google
+              </>
+            )}
+          </Button>
+        </>
+      )}
     </div>
   );
 };
