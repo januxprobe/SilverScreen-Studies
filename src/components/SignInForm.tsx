@@ -13,11 +13,11 @@ const SignInForm = () => {
   const [password, setPassword] = useState('');
   const { signIn } = useAuth();
   const { toast } = useToast();
-    const [isPending, setIsPending] = React.useState(false);
+  const [isPending, setIsPending] = React.useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-        setIsPending(true);
+    setIsPending(true);
     try {
       await signIn(email, password);
       toast({
@@ -31,13 +31,13 @@ const SignInForm = () => {
         variant: 'destructive',
       });
     } finally {
-            setIsPending(false);
-        }
+      setIsPending(false);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-      <div>
+      <div suppressHydrationWarning>
         <Label htmlFor="email">Email</Label>
         <Input
           type="email"
@@ -48,7 +48,7 @@ const SignInForm = () => {
           required
         />
       </div>
-      <div>
+      <div suppressHydrationWarning>
         <Label htmlFor="password">Password</Label>
         <Input
           type="password"

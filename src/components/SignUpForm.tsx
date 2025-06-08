@@ -37,7 +37,7 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-      <div>
+      <div suppressHydrationWarning>
         <Label htmlFor="email">Email</Label>
         <Input
           type="email"
@@ -48,7 +48,7 @@ const SignUpForm = () => {
           required
         />
       </div>
-      <div>
+      <div suppressHydrationWarning>
         <Label htmlFor="password">Password</Label>
         <Input
           type="password"
