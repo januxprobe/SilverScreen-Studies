@@ -66,11 +66,6 @@ const LandingPage = () => {
           <SignInForm />
         </div>
       </div>
-      <div className="mt-10 flex items-center justify-center gap-x-6">
-           <Button asChild size="lg">
-               <Link href="/auth">Get Started</Link>
-           </Button>
-       </div>
     </div>
   );
 };
