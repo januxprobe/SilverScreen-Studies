@@ -1,7 +1,8 @@
+
 import { AuthProvider } from '../context/AuthContext';
 import { Toaster } from "@/components/ui/toaster";
-import AppLayout from '@/components/layout/AppLayout';
-import './globals.css'; // Assuming globals.css is here for fonts etc.
+import MainContentWrapper from '@/components/layout/MainContentWrapper'; // New import
+import './globals.css';
 
 export const metadata = {
   title: 'SilverScreen Studies',
@@ -13,9 +14,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
         <AuthProvider>
-          <AppLayout>
+          <MainContentWrapper>
             {children}
-          </AppLayout>
+          </MainContentWrapper>
           <Toaster />
         </AuthProvider>
       </body>
