@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 import { auth } from '../lib/firebase';
@@ -8,6 +8,8 @@ import {
   signOut,
   onAuthStateChanged,
   type User as FirebaseUser,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from 'firebase/auth';
 
 interface AuthContextType {
@@ -15,6 +17,7 @@ interface AuthContextType {
   loading: boolean;
   signUp: (email, password) => Promise<any>;
   signIn: (email, password) => Promise<any>;
+  signInWithGoogle: () => Promise<any>;
   logOut: () => Promise<void>;
 }
 
@@ -45,6 +48,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const signInWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
   const logOut = async () => {
     setUser(null); 
     await signOut(auth);
@@ -55,6 +63,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     loading,
     signUp,
     signIn,
+    signInWithGoogle,
     logOut,
   };
 
