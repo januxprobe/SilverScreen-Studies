@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -102,11 +103,11 @@ const SignUpForm = () => {
             {/* Fallback for SSR to prevent hydration mismatch and maintain layout */}
             <div className="space-y-1">
               <Label htmlFor="email-signup-ssr">Email</Label>
-              <Input id="email-signup-ssr" disabled placeholder="Enter your email" />
+              <Input id="email-signup-ssr" disabled placeholder="Enter your email" value="" onChange={() => {}} />
             </div>
             <div className="space-y-1">
               <Label htmlFor="password-signup-ssr">Password</Label>
-              <Input id="password-signup-ssr" type="password" disabled placeholder="Enter your password" />
+              <Input id="password-signup-ssr" type="password" disabled placeholder="Enter your password" value="" onChange={() => {}} />
             </div>
           </>
         )}

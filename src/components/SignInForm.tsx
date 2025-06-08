@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -30,7 +31,7 @@ const SignInForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!isClient) return; // Should not happen if button is disabled
+    if (!isClient) return;
     setIsPending(true);
     try {
       await signIn(email, password);
@@ -50,7 +51,7 @@ const SignInForm = () => {
   };
 
   const handleGoogleSignIn = async () => {
-    if (!isClient) return; // Should not happen if button is disabled
+    if (!isClient) return;
     setIsGooglePending(true);
     try {
       await signInWithGoogle();
@@ -102,11 +103,11 @@ const SignInForm = () => {
             {/* Fallback for SSR to prevent hydration mismatch and maintain layout */}
             <div className="space-y-1">
               <Label htmlFor="email-signin-ssr">Email</Label>
-              <Input id="email-signin-ssr" disabled placeholder="Enter your email" />
+              <Input id="email-signin-ssr" disabled placeholder="Enter your email" value="" onChange={() => {}} />
             </div>
             <div className="space-y-1">
               <Label htmlFor="password-signin-ssr">Password</Label>
-              <Input id="password-signin-ssr" type="password" disabled placeholder="Enter your password" />
+              <Input id="password-signin-ssr" type="password" disabled placeholder="Enter your password" value="" onChange={() => {}} />
             </div>
           </>
         )}
