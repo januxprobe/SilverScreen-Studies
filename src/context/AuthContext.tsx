@@ -1,3 +1,4 @@
+
 'use client';
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
@@ -11,6 +12,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
+import { useRouter } from 'next/navigation';
 
 interface AuthContextType {
   user: FirebaseUser | null;
@@ -26,6 +28,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<FirebaseUser | null>(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
@@ -56,6 +59,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logOut = async () => {
     setUser(null); 
     await signOut(auth);
+    router.push('/'); 
   };
 
   const value: AuthContextType = {
@@ -81,3 +85,4 @@ export const useAuth = (): AuthContextType => {
   }
   return context;
 };
+
