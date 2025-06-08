@@ -1,3 +1,5 @@
+'use client';
+
 // src/components/SignInForm.tsx
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
@@ -13,7 +15,7 @@ const SignInForm = () => {
   const { toast } = useToast();
     const [isPending, setIsPending] = React.useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
         setIsPending(true);
     try {
@@ -22,7 +24,7 @@ const SignInForm = () => {
         title: 'Sign in successful!',
         description: 'You have successfully signed in.',
       });
-    } catch (error) {
+    } catch (error: any) {
       toast({
         title: 'Error signing in',
         description: error.message,
