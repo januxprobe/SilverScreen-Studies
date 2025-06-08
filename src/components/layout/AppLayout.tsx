@@ -3,14 +3,14 @@
 
 import type React from "react";
 import Link from "next/link";
-import { Github, User, LogOut, SignIn, UserPlus } from "lucide-react"; // Added User, LogOut, SignIn, UserPlus
+import { Github, User, LogOut, LogIn, UserPlus } from "lucide-react"; // Changed SignIn to LogIn
 
-import { SidebarProvider, Sidebar, SidebarTrigger, SidebarHeader, SidebarContent, SidebarInset, SidebarFooter } from "@/components/ui/sidebar";
+import { SidebarProvider, Sidebar, SidebarTrigger, SidebarHeader, SidebarContent, SidebarInset, SidebarFooter, useSidebar } from "@/components/ui/sidebar";
 import SidebarNav from "@/components/layout/SidebarNav";
 import Logo from "@/components/layout/Logo";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/context/AuthContext"; // Added
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"; // Added
+import { useAuth } from "@/context/AuthContext";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,9 +18,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"; // Added
-import { useToast } from "@/hooks/use-toast"; // Added
-import { Skeleton } from "@/components/ui/skeleton"; // Added
+} from "@/components/ui/dropdown-menu";
+import { useToast } from "@/hooks/use-toast";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -29,6 +31,7 @@ interface AppLayoutProps {
 export default function AppLayout({ children }: AppLayoutProps) {
   const { user, logOut, loading } = useAuth();
   const { toast } = useToast();
+  // const { state: sidebarState } = useSidebar(); // Not needed if not directly used for logic
 
   return (
     <SidebarProvider defaultOpen>
@@ -73,21 +76,21 @@ export default function AppLayout({ children }: AppLayoutProps) {
                       </AvatarFallback>
                     </Avatar>
                     <div className="ml-2 group-data-[collapsible=icon]:hidden flex flex-col items-start overflow-hidden">
-                      <span className="text-sm font-medium text-sidebar-foreground truncate w-full">
+                      <span className="text-sm font-medium text-sidebar-foreground truncate max-w-[calc(100%-10px)]">
                         {user.displayName || user.email}
                       </span>
                       {user.displayName && user.email && (
-                         <span className="text-xs text-sidebar-foreground/70 truncate w-full">
+                         <span className="text-xs text-sidebar-foreground/70 truncate max-w-[calc(100%-10px)]">
                            {user.email}
                          </span>
                       )}
                     </div>
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent side="top" align="start" className="w-56 mb-1 ml-1 bg-popover text-popover-foreground">
+                <DropdownMenuContent side="top" align="start" className="w-56 mb-1 ml-1 bg-popover text-popover-foreground border-border">
                   <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
-                      <p className="text-sm font-medium leading-none">
+                      <p className="text-sm font-medium leading-none text-foreground">
                         {user.displayName || "Account"}
                       </p>
                       {user.email && (
@@ -97,7 +100,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
                       )}
                     </div>
                   </DropdownMenuLabel>
-                  <DropdownMenuSeparator />
+                  <DropdownMenuSeparator className="bg-border" />
                   <DropdownMenuItem
                     onClick={async () => {
                       try {
@@ -107,7 +110,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
                         toast({ title: 'Logout failed', description: (error as Error).message, variant: 'destructive' });
                       }
                     }}
-                    className="cursor-pointer text-popover-foreground hover:!bg-accent hover:!text-accent-foreground"
+                    className="cursor-pointer text-popover-foreground hover:!bg-accent hover:!text-accent-foreground focus:!bg-accent focus:!text-accent-foreground"
                   >
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Log out</span>
@@ -121,12 +124,12 @@ export default function AppLayout({ children }: AppLayoutProps) {
           ) : (
             <>
               <div className="group-data-[collapsible=icon]:hidden flex flex-col gap-1.5">
-                  <Button variant="outline" size="sm" asChild className="w-full border-sidebar-border hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                  <Button variant="outline" size="sm" asChild className="w-full border-sidebar-border hover:bg-sidebar-accent hover:text-sidebar-accent-foreground text-sidebar-foreground">
                       <Link href="/signin" className="flex items-center justify-center gap-2">
-                        <SignIn className="h-4 w-4"/> Sign In
+                        <LogIn className="h-4 w-4"/> Sign In
                       </Link>
                   </Button>
-                   <Button variant="ghost" size="sm" asChild className="w-full hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                   <Button variant="ghost" size="sm" asChild className="w-full hover:bg-sidebar-accent hover:text-sidebar-accent-foreground text-sidebar-foreground">
                       <Link href="/signup" className="flex items-center justify-center gap-2">
                         <UserPlus className="h-4 w-4"/> Sign Up
                       </Link>
@@ -135,15 +138,15 @@ export default function AppLayout({ children }: AppLayoutProps) {
               <div className="group-data-[collapsible=icon]:flex hidden items-center justify-center flex-col gap-1.5">
                  <Tooltip>
                     <TooltipTrigger asChild>
-                         <Button variant="ghost" size="icon" asChild className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
-                            <Link href="/signin"><SignIn className="h-4 w-4"/></Link>
+                         <Button variant="ghost" size="icon" asChild className="text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                            <Link href="/signin"><LogIn className="h-4 w-4"/></Link>
                         </Button>
                     </TooltipTrigger>
                     <TooltipContent side="right" align="center"><p>Sign In</p></TooltipContent>
                  </Tooltip>
                  <Tooltip>
                     <TooltipTrigger asChild>
-                        <Button variant="ghost" size="icon" asChild className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                        <Button variant="ghost" size="icon" asChild className="text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
                             <Link href="/signup"><UserPlus className="h-4 w-4"/></Link>
                         </Button>
                     </TooltipTrigger>
