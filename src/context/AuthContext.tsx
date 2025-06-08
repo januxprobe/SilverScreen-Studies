@@ -1,110 +1,93 @@
-
-'use client';
-
-import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
-import { auth } from '../lib/firebase'; // auth can be null if initialization failed
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-  type User as FirebaseUser,
-  GoogleAuthProvider,
-  signInWithPopup,
-} from 'firebase/auth';
+"use client";
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { 
+    onAuthStateChanged, 
+    signOut, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    GoogleAuthProvider
+} from 'firebase/auth';
+import { auth } from '../lib/firebase'; // Assuming auth is initialized and exported from firebase.ts
 
-interface AuthContextType {
-  user: FirebaseUser | null;
-  loading: boolean;
-  signUp: (email, password) => Promise<any>;
-  signIn: (email, password) => Promise<any>;
-  signInWithGoogle: () => Promise<any>;
-  logOut: () => Promise<void>;
-}
+// Create the AuthContext
+export const AuthContext = createContext({});
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+// AuthProvider component
+export const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const router = useRouter();
 
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<FirebaseUser | null>(null);
-  const [loading, setLoading] = useState(true);
-  const router = useRouter();
+    useEffect(() => {
+        if (!auth) {
+            console.error("Firebase auth has not been initialized.");
+            setLoading(false);
+            return;
+        }
 
-  useEffect(() => {
-    if (!auth) {
-        console.warn("AuthContext: Firebase auth object is null. Cannot set up onAuthStateChanged. Auth features may not work.");
-        setLoading(false); // Stop loading as auth state won't resolve
-        return;
-    }
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser({
+                    uid: user.uid,
+                    email: user.email,
+                    displayName: user.displayName,
+                });
+            } else {
+                setUser(null);
+            }
+            setLoading(false);
+        });
 
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      console.log('AuthContext: onAuthStateChanged triggered. User UID:', firebaseUser?.uid);
-      if (firebaseUser) {
-        setUser(firebaseUser);
-      } else {
-        setUser(null);
-      }
-      setLoading(false);
-      console.log('AuthContext: setLoading(false), user state updated.');
-    });
+        return () => unsubscribe();
+    }, []);
 
-    return () => {
-      console.log('AuthContext: Unsubscribing from onAuthStateChanged.');
-      unsubscribe();
+    const signUp = (email, password) => {
+        if (!auth) return Promise.reject(new Error("Firebase auth not initialized"));
+        return createUserWithEmailAndPassword(auth, email, password);
     };
-  }, [auth]); // Added auth to dependency array
 
-  const signUp = (email, password) => {
-    if (!auth) return Promise.reject(new Error("Firebase auth not initialized"));
-    return createUserWithEmailAndPassword(auth, email, password);
-  };
+    const signIn = (email, password) => {
+        if (!auth) return Promise.reject(new Error("Firebase auth not initialized"));
+        return signInWithEmailAndPassword(auth, email, password);
+    };
+    
+    const signInWithGoogle = () => {
+        if (!auth) return Promise.reject(new Error("Firebase auth not initialized"));
+        const provider = new GoogleAuthProvider();
+        return signInWithPopup(auth, provider);
+    };
 
-  const signIn = (email, password) => {
-    if (!auth) return Promise.reject(new Error("Firebase auth not initialized"));
-    return signInWithEmailAndPassword(auth, email, password);
-  };
+    const logOut = async () => {
+        if (!auth) {
+            console.warn("AuthContext: Firebase auth not initialized, cannot log out.");
+            setUser(null); // Clear local user state
+            router.push('/'); // Navigate to home
+            return;
+        }
+        setUser(null);
+        await signOut(auth);
+        router.push('/');
+    };
 
-  const signInWithGoogle = () => {
-    if (!auth) return Promise.reject(new Error("Firebase auth not initialized"));
-    const provider = new GoogleAuthProvider();
-    return signInWithPopup(auth, provider);
-    // Note: signInWithRedirect is used in SignInForm/SignUpForm, which is fine.
-    // This signInWithGoogle function using signInWithPopup is an alternative if needed elsewhere.
-  };
+    const value = {
+        user,
+        loading,
+        signUp,
+        signIn,
+        signInWithGoogle,
+        logOut,
+    };
 
-  const logOut = async () => {
-    if (!auth) {
-      console.warn("AuthContext: Firebase auth not initialized, cannot log out.");
-      setUser(null); // Clear local user state
-      setLoading(false);
-      router.push('/'); // Navigate to home
-      return;
-    }
-    setUser(null);
-    await signOut(auth);
-    router.push('/');
-  };
-
-  const value: AuthContextType = {
-    user,
-    loading,
-    signUp,
-    signIn,
-    signInWithGoogle,
-    logOut,
-  };
-
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+    return (
+        <AuthContext.Provider value={value}>
+            {children}
+        </AuthContext.Provider>
+    );
 };
 
-export const useAuth = (): AuthContextType => {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
+// Custom hook to use the AuthContext
+export const useAuth = () => {
+    return useContext(AuthContext);
 };
